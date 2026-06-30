@@ -30,6 +30,9 @@ build/
 dist/
 *.egg-info/
 
+# Data
+data/
+
 # Model artifacts
 /models/
 /artifacts/
