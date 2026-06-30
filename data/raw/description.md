@@ -1,0 +1,6 @@
+- `id` - row id
+- `qid1` - id of the first question
+- `qid2` - id of the second question
+- `question1` - first question text
+- `question2` - second question text
+- `is_duplicate` - target: 1 if questions are duplicates, 0 otherwise
