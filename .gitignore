@@ -30,12 +30,6 @@ build/
 dist/
 *.egg-info/
 
-# Data files
-data/raw/*.csv
-data/processed/*.csv
-data/interim/
-data/external/
-
 # Model artifacts
 /models/
 /artifacts/
