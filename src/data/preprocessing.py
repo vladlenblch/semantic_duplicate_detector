@@ -13,6 +13,7 @@ PROCESSED_DATA_PATH = PROJECT_ROOT / "data" / "processed"
 COLUMNS_TO_DROP = ["id", "qid1", "qid2"]
 
 FEATURES_TO_PREPROCESS = ["question1", "question2"]
+EMPTY_VALUES = {"", "nan", "none", "null"}
 
 HTML_TAG_PATTERN = re.compile(r"<.*?>")
 SPECIAL_CHARS_PATTERN = re.compile(r"[^\w\s]")
@@ -31,6 +32,10 @@ def load_raw_data():
 
 def remove_invalid_rows(df):
     cleaned_df = df.dropna(subset=FEATURES_TO_PREPROCESS)
+
+    for col in FEATURES_TO_PREPROCESS:
+        not_empty_mask = ~cleaned_df[col].str.strip().str.lower().isin(EMPTY_VALUES)
+        cleaned_df = cleaned_df.loc[not_empty_mask]
 
     return cleaned_df
 
@@ -76,6 +81,7 @@ def preprocess_data(df):
     df = remove_useless_features(df)
     df = to_lowercase(df)
     df = clean_data(df)
+    df = remove_invalid_rows(df)
 
     return df
 
