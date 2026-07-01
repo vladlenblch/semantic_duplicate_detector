@@ -31,7 +31,7 @@ dist/
 *.egg-info/
 
 # Data
-data/
+/data/
 
 # Model artifacts
 /models/
