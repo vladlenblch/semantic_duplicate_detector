@@ -47,7 +47,7 @@ def main():
         max_len=50
     )
 
-    train_loader = DataLoader(
+    train_dataloader = DataLoader(
         train_dataset,
         batch_size=32,
         shuffle=True
